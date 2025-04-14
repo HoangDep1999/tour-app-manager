@@ -7,6 +7,8 @@ import { TourTicketDetailModule } from './tour-ticket-detail/tour-ticket-detail.
 import { UserModule } from './user/user.module';
 import { TourModule } from './tour/tour.module';
 import { TicketTransactionModule } from './ticket-transaction/ticket-transaction.module';
+import { LocationModule } from './location/location.module';
+import { LocationTourModule } from './location_tour/location_tour.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { TicketTransactionModule } from './ticket-transaction/ticket-transaction
     TourModule,
     UserModule,
     TicketTransactionModule,
+    LocationModule,
+    LocationTourModule,
   ],
 })
 export class AppModule {}
