@@ -1,10 +1,23 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
+import { ConfigModule } from '@nestjs/config';
+import { ScheduleModule } from './schedule/schedule.module';
+import { CruiseActivityModule } from './cruise-activity/cruise-activity.module';
+import { TourTicketDetailModule } from './tour-ticket-detail/tour-ticket-detail.module';
+import { UserModule } from './user/user.module';
+import { TourModule } from './tour/tour.module';
+import { TicketTransactionModule } from './ticket-transaction/ticket-transaction.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    DatabaseModule,
+    ScheduleModule,
+    CruiseActivityModule,
+    TourTicketDetailModule,
+    TourModule,
+    UserModule,
+    TicketTransactionModule,
+  ],
 })
 export class AppModule {}
