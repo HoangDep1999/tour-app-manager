@@ -9,10 +9,13 @@ import { TourModule } from './tour/tour.module';
 import { TicketTransactionModule } from './ticket-transaction/ticket-transaction.module';
 import { LocationModule } from './location/location.module';
 import { LocationTourModule } from './location_tour/location_tour.module';
+import { JwtModule } from '@nestjs/jwt';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    JwtModule.register({ global: true }),
     DatabaseModule,
     ScheduleModule,
     CruiseActivityModule,
@@ -22,6 +25,7 @@ import { LocationTourModule } from './location_tour/location_tour.module';
     TicketTransactionModule,
     LocationModule,
     LocationTourModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

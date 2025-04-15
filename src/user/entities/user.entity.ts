@@ -1,6 +1,6 @@
 import { AbstractEntity } from 'src/database/abstract.entity';
 import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail';
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity('user')
 export class User extends AbstractEntity<User> {
@@ -9,6 +9,9 @@ export class User extends AbstractEntity<User> {
 
   @Column({ unique: true })
   email: string;
+
+  @Column({ unique: true, nullable: true })
+  username: string;
 
   @Column()
   password: string;
