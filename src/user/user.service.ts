@@ -43,7 +43,11 @@ export class UserService implements OnApplicationBootstrap {
       console.log('Super Admin has been registered');
     }
   }
-  async findUserByEmail(email: string) {
-    return await this.userRepository.findOneByField('email', email);
+  async findUserByUsername(username: string) {
+    return await this.userRepository.findOneByField('username', username);
+  }
+
+  async findById(id: number) {
+    return await this.userRepository.findById(id);
   }
 }

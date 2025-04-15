@@ -1,7 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { TourService } from './tour.service';
 import { CreateTourDto } from './dto/create-tour.dto';
 import { UpdateTourDto } from './dto/update-tour.dto';
+import { Public } from 'src/auth/decorator/public.decorator';
+import { Roles } from 'src/auth/decorator/role.decorator';
+import { UserRoleEnum } from 'src/enum/user.role.enum';
 
 @Controller('tour')
 export class TourController {
@@ -12,11 +15,13 @@ export class TourController {
     return this.tourService.create(createTourDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.tourService.findAll();
   }
 
+  @Roles(UserRoleEnum.ADMIN, UserRoleEnum.SUPER_ADMIN)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.tourService.findOne(+id);

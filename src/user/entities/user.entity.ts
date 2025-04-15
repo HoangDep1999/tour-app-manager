@@ -1,4 +1,5 @@
 import { AbstractEntity } from 'src/database/abstract.entity';
+import { UserRoleEnum } from 'src/enum/user.role.enum';
 import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail';
 import { Column, Entity, OneToMany } from 'typeorm';
 
@@ -16,8 +17,12 @@ export class User extends AbstractEntity<User> {
   @Column()
   password: string;
 
-  @Column({ default: 'customer' })
-  role: string;
+  @Column({
+    type: 'enum',
+    enum: UserRoleEnum,
+    default: UserRoleEnum.CUSTOMER,
+  })
+  role: UserRoleEnum;
 
   @OneToMany(() => TourTicketDetail, (tour) => tour.user)
   tours: TourTicketDetail[];

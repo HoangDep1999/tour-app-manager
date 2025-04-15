@@ -1,4 +1,4 @@
-import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import { CreateDateColumn, DeleteDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 export abstract class AbstractEntity<T> {
   @PrimaryGeneratedColumn()
@@ -9,6 +9,9 @@ export abstract class AbstractEntity<T> {
 
   @UpdateDateColumn({ type: 'datetime', precision: 6 })
   updatedAt: Date;
+
+  @DeleteDateColumn({ nullable: true })
+  deletedAt?: Date;
 
   constructor(entity: Partial<T> = {}) {
     Object.assign(this, entity);
