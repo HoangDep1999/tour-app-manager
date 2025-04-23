@@ -1,6 +1,6 @@
 import { AbstractEntity } from 'src/database/abstract.entity';
 import { LocationTour } from 'src/location_tour/entities/location_tour.entity';
-import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail';
+import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity('tour')

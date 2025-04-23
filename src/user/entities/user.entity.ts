@@ -1,6 +1,6 @@
 import { AbstractEntity } from 'src/database/abstract.entity';
 import { UserRoleEnum } from 'src/enum/user.role.enum';
-import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail';
+import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail.entity';
 import { Column, Entity, OneToMany } from 'typeorm';
 
 @Entity('user')

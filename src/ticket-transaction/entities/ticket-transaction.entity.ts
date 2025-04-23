@@ -1,5 +1,5 @@
 import { AbstractEntity } from 'src/database/abstract.entity';
-import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail';
+import { TourTicketDetail } from 'src/tour-ticket-detail/entities/tour-ticket-detail.entity';
 import { Column, Entity, ManyToOne } from 'typeorm';
 
 @Entity('ticket_transaction')
