@@ -27,6 +27,6 @@ export class User extends AbstractEntity<User> {
   @OneToMany(() => TourTicketDetail, (tour) => tour.user)
   tours: TourTicketDetail[];
 
-  @Column()
+  @Column({ nullable: true })
   isActive: boolean;
 }

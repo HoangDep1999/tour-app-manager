@@ -14,7 +14,7 @@ export default new DataSource({
   password: configService.getOrThrow('MYSQL_PASSWORD'),
   entities: [isCompiled ? 'dist/**/*.entity.js' : 'src/**/*.entity.ts'],
   migrations: [isCompiled ? 'dist/src/migrations/*.js' : 'src/migrations/*.ts'],
-  migrationsRun: false,
+  migrationsRun: true,
   synchronize: configService.get('MYSQL_SYNCHRONIZE') === 'true',
   logging: false,
 });
